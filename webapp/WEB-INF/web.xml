@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>DepthVisual</display-name>
+    
+    <mime-mapping>
+        <extension>jpg</extension>
+        <mime-type>image/jpeg</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>jpeg</extension>
+        <mime-type>image/jpeg</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>png</extension>
+        <mime-type>image/png</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>tiff</extension>
+        <mime-type>image/tiff</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>raw</extension>
+        <mime-type>image/x-raw</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>css</extension>
+        <mime-type>text/css</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>js</extension>
+        <mime-type>application/javascript</mime-type>
+    </mime-mapping>
+
+    <context-param>
+        <param-name>file-upload-dir</param-name>
+        <param-value>/uploadImg</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.depth.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.depth.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.depth.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.depth.controller.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>com.depth.controller.UploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/UploadServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DepthAnalyzeServlet</servlet-name>
+        <servlet-class>com.depth.controller.DepthAnalyzeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepthAnalyzeServlet</servlet-name>
+        <url-pattern>/DepthAnalyzeServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HistoryServlet</servlet-name>
+        <servlet-class>com.depth.controller.HistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HistoryServlet</servlet-name>
+        <url-pattern>/HistoryServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>com.depth.controller.TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/TestServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AnalyzeServlet</servlet-name>
+        <servlet-class>com.depth.controller.AnalyzeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AnalyzeServlet</servlet-name>
+        <url-pattern>/AnalyzeServlet</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>LoginServlet</welcome-file>
+    </welcome-file-list>
+
+</web-app>
